@@ -10,8 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.8",
+    "drizzle-kit": "^0.20.9",
     "nuxt": "^3.9.0",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2",
+    "drizzle-orm": "^0.29.2"
   }
 }
