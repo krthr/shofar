@@ -1,6 +1,7 @@
 {
+  "buildCommand": "NITRO_PRESET=vercel_edge nuxt build",
   "functions": {
-    "api/__nitro": {
+    "api/*": {
       "memory": 256
     }
   }
