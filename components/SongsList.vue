@@ -13,7 +13,10 @@
           {{ index + 1 }}
         </div>
 
-        <div class="group-hover:block hidden">
+        <div
+          class="group-hover:block hidden"
+          @click="$player.playSong(song.id)"
+        >
           <button>
             <Icon name="ph:play-fill" />
           </button>

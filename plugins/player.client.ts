@@ -19,6 +19,7 @@ async function getSongs(filters: GetSongsArgs = {}) {
 type Song = GetSongs["data"][number];
 
 export default defineNuxtPlugin(() => {
+  const loading = ref(false);
   const playlist = ref(new Map<string, Song>());
   const playing = ref<Song | undefined>();
 
@@ -48,10 +49,12 @@ export default defineNuxtPlugin(() => {
   }
 
   async function playSong(songId: number) {
+    console.log("playSong", { songId });
+
     const songs = await getSongs({ songId });
     addSongs(songs);
     playNext();
   }
 
-  return { provide: { player: { playlist, playing, playSong } } };
+  return { provide: { player: { loading, playlist, playing, playSong } } };
 });
