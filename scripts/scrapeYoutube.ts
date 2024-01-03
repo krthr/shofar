@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import DATA from "./data";
 import Sharp from "sharp";
 
