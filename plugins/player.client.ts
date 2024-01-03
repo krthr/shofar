@@ -38,11 +38,18 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  async function playSong(songId: number) {
-    console.log("playSong", { songId });
+  async function playSong(songId?: number, songs?: Song[]) {
+    console.log("playSong", { songId, songs });
 
-    const songs = await getSongs({ songId });
-    addSongsToPlaylist(songs);
+    let _songs: Song[] = [];
+
+    if (songs?.length) {
+      _songs = [...songs];
+    } else if (songId) {
+      songs = await getSongs({ songId });
+    }
+
+    addSongsToPlaylist(_songs);
     playNext();
   }
 

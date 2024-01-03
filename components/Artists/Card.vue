@@ -3,7 +3,7 @@
     <div class="card-body text-center">
       <div class="w-full relative">
         <button
-          class="absolute btn-circle btn btn-primary bottom-2 right-2 hidden group-hover:block shadow-lg"
+          class="absolute btn-circle btn btn-primary bottom-2 right-2 shadow-lg hidden group-hover:block"
         >
           <Icon name="ph:play-fill" />
         </button>

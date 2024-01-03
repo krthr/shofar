@@ -6,22 +6,19 @@
       class="flex items-center group gap-4 p-2 hover:bg-base-25 rounded-md"
     >
       <div
-        v-if="showIndex"
+        v-if="isDesktop && showIndex"
         :class="{
           'w-5 h-5': dense,
           'w-14 h-14': !dense,
-          'text-center font-normal flex items-center justify-center': true,
+          'text-center font-normal md:flex items-center justify-center hidden': true,
         }"
       >
         <div class="group-hover:hidden">
           {{ index + 1 }}
         </div>
 
-        <div
-          class="group-hover:block hidden"
-          @click="$player.playSong(song.id)"
-        >
-          <button>
+        <div class="group-hover:block hidden">
+          <button @click="$emit('playSong', index, song.id, song)">
             <Icon name="ph:play-fill" />
           </button>
         </div>
@@ -30,7 +27,6 @@
       <div v-if="showCover" class="text-center w-14 h-14 relative">
         <button
           class="absolute shadow-xl top-0 bottom-0 right-0 left-0 hidden group-hover:block z-10"
-          @click="$player.playSong(song.id)"
         >
           <Icon name="ph:play-fill" class="text-white" size="20" />
         </button>
@@ -42,17 +38,15 @@
         <img
           :src="song.album.thumbnail!"
           class="w-14 h-14 rounded-md relative"
+          @click="$emit('playSong', index, song.id, song)"
         />
       </div>
 
       <div class="flex-1">
-        <div>
-          <NuxtLink
-            class="font-medium text-white line-clamp-1"
-            :to="{ name: 'albums-id', params: { id: song.album.id } }"
-          >
+        <div @click="$emit('playSong', index, song.id, song)">
+          <div class="font-medium text-white line-clamp-1">
             {{ song.name }}
-          </NuxtLink>
+          </div>
         </div>
 
         <div v-if="showAlbum">
@@ -80,12 +74,21 @@
         </div>
       </div>
 
-      <div v-if="showAddToPlaylist" class="col-start-13">
+      <div v-if="showAddToPlaylist">
         <button
-          class="btn btn-ghost btn-circle"
-          @click="$player.addSongsToPlaylist([song])"
+          class="btn btn-ghost btn-circle btn-sm md:btn-normal"
+          @click="$emit('addToPlaylist', index, song.id, song)"
         >
-          <Icon name="ph:list-plus-fill" size="25" />
+          <Icon name="ph:list-plus-fill" class="w-5 h-5" />
+        </button>
+      </div>
+
+      <div v-if="showRemoveFromList" class="">
+        <button
+          class="btn btn-ghost btn-circle btn-sm"
+          @click="$emit('removeFromList', index, song.id, song)"
+        >
+          <Icon name="ph:x" class="w-5 h-5" />
         </button>
       </div>
     </div>
@@ -106,7 +109,15 @@ defineProps<{
   showAlbum?: boolean;
   showArtist?: boolean;
   showAddToPlaylist?: boolean;
+  showRemoveFromList?: boolean;
 }>();
 
 const { $player } = useNuxtApp();
+const { isDesktop } = useDevice();
+
+defineEmits<{
+  playSong: [index: number, id: number, song: GetSongs["data"][number]];
+  addToPlaylist: [index: number, id: number, song: GetSongs["data"][number]];
+  removeFromList: [index: number, id: number, song: GetSongs["data"][number]];
+}>();
 </script>

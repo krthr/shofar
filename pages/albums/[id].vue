@@ -8,6 +8,10 @@
         :songs="albumSongs.data.value.data"
         show-index
         show-add-to-playlist
+        @add-to-playlist="
+          (index, id, song) => $player.addSongsToPlaylist([song])
+        "
+        @play-song="(index, id, song) => $player.playSong(undefined, [song])"
       />
     </div>
   </div>
@@ -26,4 +30,6 @@ const albumSongs = await useFetch("/api/songs", {
   query: { albumId: album.value.id },
   server: false,
 });
+
+useHead({ title: `${album.value.name} de ${album.value.artists.at(0)?.name}` });
 </script>

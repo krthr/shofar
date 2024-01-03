@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon"],
+  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxtjs/device"],
 
   features: {
     inlineStyles: true,
@@ -76,6 +76,10 @@ export default defineNuxtConfig({
             body: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
           },
         },
+      },
+
+      future: {
+        hoverOnlyWhenSupported: true,
       },
     },
   },

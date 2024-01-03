@@ -14,7 +14,7 @@
 
       <div>
         <NuxtLink
-          v-for="{ artist } in album.artists"
+          v-for="artist in album.artists"
           :key="artist.id"
           class="hover:underline font-medium"
           :to="{ name: 'artists-id', params: { id: artist.id } }"

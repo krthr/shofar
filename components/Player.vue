@@ -1,6 +1,9 @@
 <template>
-  <div v-show="openPlaylist" class="fixed bottom-[130px] left-0 p-5 z-20">
-    <div class="card card-compact w-[300px]">
+  <div
+    v-show="openPlaylist"
+    class="fixed bottom-[130px] left-0 p-5 z-20 w-screen md:w-[400px]"
+  >
+    <div class="card card-compact">
       <div class="card-body">
         <div class="flex">
           <p class="card-title text-sm font-medium">Lista de reproducción</p>
@@ -14,9 +17,12 @@
 
         <SongsList
           :songs="$player.playlist.value"
+          class="max-h-[500px] overflow-y-scroll"
           dense
           show-index
           show-artist
+          show-cover
+          show-remove-from-list
         />
       </div>
     </div>
@@ -50,7 +56,7 @@
                   params: { id: $player.playing.value.album.id },
                 }"
               >
-                {{ $player.playing.value.album.name }}
+                {{ $player.playing.value.name }}
               </NuxtLink>
               <NuxtLink
                 class="text-sm line-clamp-1 hover:underline"
