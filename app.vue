@@ -1,4 +1,6 @@
 <template>
+  <SpeedInsights />
+
   <div class="w-full pb-[150px]">
     <NuxtLoadingIndicator />
 
@@ -13,5 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import { SpeedInsights } from "@vercel/speed-insights/vue";
+
 const { $player } = useNuxtApp();
 </script>
