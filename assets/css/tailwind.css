@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .card-title,
+  .footer-title {
+    @apply font-title !important;
+    color: white;
+  }
+
+  body {
+    @apply font-body
+  }
+
+  .card {
+    @apply bg-base-50
+  }
+}
+
+.page-width {
+  @apply max-w-7xl mx-auto
+}
