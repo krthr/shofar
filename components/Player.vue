@@ -12,26 +12,21 @@
           </button>
         </div>
 
-        <div class="max-h-[300px] overflow-y-scroll">
-          <div
-            v-for="(song, index) in $player.playlist.value.values()"
-            :key="index"
-          >
-            {{ song.name }}
-          </div>
-        </div>
+        <SongsList
+          :songs="$player.playlist.value"
+          dense
+          show-index
+          show-artist
+        />
       </div>
     </div>
   </div>
 
-  <div
-    v-if="$player.playing.value"
-    class="fixed w-full bottom-0 left-0 z-20 pointer-events-none p-5"
-  >
+  <div class="fixed w-full bottom-0 left-0 z-20 pointer-events-none p-5">
     <div class="pointer-events-auto w-fit">
-      <div class="flex justify-center card p-3 shadow-lg w-[300px]">
+      <div class="flex justify-center card p-3 shadow-lg max-w-[300px]">
         <div class="flex items-center gap-3">
-          <div>
+          <div v-if="$player.playing.value">
             <NuxtLink
               class="w-24 h-24 flex"
               :to="{
@@ -47,7 +42,7 @@
           </div>
 
           <div>
-            <div class="mb-2">
+            <div v-if="$player.playing.value" class="mb-2">
               <NuxtLink
                 class="text-base font-medium line-clamp-1 hover:underline"
                 :to="{
@@ -62,20 +57,26 @@
                 :to="{
                   name: 'artists-id',
                   params: {
-                    id: $player.playing.value.album.artists.at(0)?.artist.id,
+                    id: $player.playing.value.artists.at(0)?.id,
                   },
                 }"
               >
-                {{ $player.playing.value.album.artists.at(0)?.artist.name }}
+                {{ $player.playing.value.artists.at(0)?.name }}
               </NuxtLink>
             </div>
 
             <div class="gap-2 flex">
-              <button class="btn btn-ghost btn-circle">
+              <button
+                class="btn btn-ghost btn-circle"
+                v-if="$player.playing.value"
+              >
                 <Icon name="ph:play-fill" size="20" />
               </button>
 
-              <button class="btn btn-ghost btn-circle">
+              <button
+                class="btn btn-ghost btn-circle"
+                v-if="$player.playing.value"
+              >
                 <Icon name="ph:skip-forward-fill" size="20" />
               </button>
 

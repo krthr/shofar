@@ -4,7 +4,12 @@
 
     <div v-if="results.songs.length">
       <Subtitle>Canciones</Subtitle>
-      <SongsList :songs="results.songs" show-artist show-cover />
+      <SongsList
+        :songs="results.songs"
+        show-artist
+        show-cover
+        show-add-to-playlist
+      />
     </div>
 
     <div v-if="results.albums.length">

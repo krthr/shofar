@@ -6,8 +6,8 @@
       <SongsList
         v-if="albumSongs.status.value === 'success'"
         :songs="albumSongs.data.value.data"
-        :show-cover="false"
         show-index
+        show-add-to-playlist
       />
     </div>
   </div>

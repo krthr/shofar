@@ -1,5 +1,7 @@
 import type { GetSongs } from "~/server/api/songs";
 
+type Song = GetSongs["data"][number];
+
 interface GetSongsArgs {
   songId?: number;
   albumId?: number;
@@ -16,29 +18,17 @@ async function getSongs(filters: GetSongsArgs = {}) {
   }
 }
 
-type Song = GetSongs["data"][number];
-
 export default defineNuxtPlugin(() => {
   const loading = ref(false);
-  const playlist = ref(new Map<string, Song>());
+  const playlist = ref<Song[]>([]);
   const playing = ref<Song | undefined>();
 
-  function addSongs(songs: Song[]) {
-    for (const song of songs) {
-      playlist.value.set(`${Date.now()}-${song.id}`, song);
-    }
+  function addSongsToPlaylist(songs: Song[]) {
+    playlist.value.push(...songs);
   }
 
   function getFirstSong() {
-    const iter = playlist.value.entries();
-    const firstElement = iter.next().value;
-
-    if (firstElement) {
-      playlist.value.delete(firstElement[0]);
-      return firstElement[1] as Song;
-    }
-
-    return undefined;
+    return playlist.value.pop();
   }
 
   function playNext() {
@@ -52,9 +42,13 @@ export default defineNuxtPlugin(() => {
     console.log("playSong", { songId });
 
     const songs = await getSongs({ songId });
-    addSongs(songs);
+    addSongsToPlaylist(songs);
     playNext();
   }
 
-  return { provide: { player: { loading, playlist, playing, playSong } } };
+  return {
+    provide: {
+      player: { loading, playlist, playing, addSongsToPlaylist, playSong },
+    },
+  };
 });

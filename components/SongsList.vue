@@ -7,7 +7,11 @@
     >
       <div
         v-if="showIndex"
-        class="w-14 h-14 text-center font-normal flex items-center justify-center"
+        :class="{
+          'w-5 h-5': dense,
+          'w-14 h-14': !dense,
+          'text-center font-normal flex items-center justify-center': true,
+        }"
       >
         <div class="group-hover:hidden">
           {{ index + 1 }}
@@ -76,8 +80,11 @@
         </div>
       </div>
 
-      <div class="col-start-13">
-        <button class="btn btn-ghost btn-circle">
+      <div v-if="showAddToPlaylist" class="col-start-13">
+        <button
+          class="btn btn-ghost btn-circle"
+          @click="$player.addSongsToPlaylist([song])"
+        >
           <Icon name="ph:list-plus-fill" size="25" />
         </button>
       </div>
@@ -92,10 +99,13 @@ import type { GetSongs } from "~/server/api/songs/index";
 defineProps<{
   songs: Search["songs"] | GetSongs["data"];
 
+  dense?: boolean;
+
   showIndex?: boolean;
   showCover?: boolean;
   showAlbum?: boolean;
   showArtist?: boolean;
+  showAddToPlaylist?: boolean;
 }>();
 
 const { $player } = useNuxtApp();

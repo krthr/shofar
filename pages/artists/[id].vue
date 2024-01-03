@@ -5,7 +5,12 @@
     <div class="p-5 page-width space-y-6">
       <div v-if="artistSongs.status.value === 'success'">
         <Subtitle>Canciones</Subtitle>
-        <SongsList :songs="artistSongs.data.value.data" show-album show-cover />
+        <SongsList
+          :songs="artistSongs.data.value.data"
+          show-album
+          show-cover
+          show-add-to-playlist
+        />
       </div>
 
       <div>
