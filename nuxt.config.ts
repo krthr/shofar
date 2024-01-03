@@ -79,4 +79,12 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  nitro: {
+    vercel: {
+      functions: {
+        memory: 256,
+      },
+    },
+  },
 });
