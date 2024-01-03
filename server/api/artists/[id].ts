@@ -13,7 +13,7 @@ async function getArtist(event: H3Event) {
       name: artists.name,
       thumbnail: artists.thumbnail,
       albums: sql`json_group_array(
-        json_object(
+        DISTINCT json_object(
           'id', ${albums.id},
           'name', ${albums.name},
           'thumbnail', ${albums.thumbnail},

@@ -68,10 +68,10 @@
             class="text-sm hover:underline line-clamp-1"
             :to="{
               name: 'artists-id',
-              params: { id: song.album.artists.at(0)?.artist.id },
+              params: { id: song.artists.at(0)?.id },
             }"
           >
-            {{ song.album.artists.at(0)?.artist.name }}
+            {{ song.artists.at(0)?.name }}
           </NuxtLink>
         </div>
       </div>
