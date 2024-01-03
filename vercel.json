@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "__nitro": {
+      "memory": 256
+    }
+  }
+}
