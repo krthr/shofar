@@ -1,6 +1,6 @@
 {
   "functions": {
-    "__nitro": {
+    "api/__nitro": {
       "memory": 256
     }
   }
