@@ -8,6 +8,10 @@
       <NuxtPage class="pt-[90px]" />
     </div>
 
-    <!-- <LazyPlayer /> -->
+    <LazyPlayer v-if="$player" />
   </div>
 </template>
+
+<script setup lang="ts">
+const { $player } = useNuxtApp();
+</script>
