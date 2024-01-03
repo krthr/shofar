@@ -1,5 +1,7 @@
 <template>
   <div class="w-full pb-[150px]">
+    <NuxtLoadingIndicator />
+
     <Navbar />
 
     <div>
