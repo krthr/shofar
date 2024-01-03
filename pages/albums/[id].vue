@@ -24,5 +24,6 @@ if (error.value || !album.value) {
 
 const albumSongs = await useFetch("/api/songs", {
   query: { albumId: album.value.id },
+  server: false,
 });
 </script>
