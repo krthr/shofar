@@ -4,7 +4,7 @@
   >
     <div class="flex items-center justify-between">
       <NuxtLink to="/">
-        <h1 class="text-2xl font-medium">Pentecostal</h1>
+        <h1 class="text-xl md:text-2xl font-medium">Pentecostal</h1>
       </NuxtLink>
 
       <div class="md:ml-8">
@@ -12,12 +12,12 @@
           <input
             v-model.trim="searchTerm"
             type="text"
-            class="join-item input input-bordered input-md max-w-[200px]"
+            class="join-item input input-bordered input-sm md:input-md md:max-w-[200px] max-w-[150px]"
             placeholder="Buscar..."
             @keyup.enter="goToSearch()"
           />
 
-          <button class="join-item btn btn-primary" @click="goToSearch()">
+          <button class="join-item btn btn-primary md:btn-md btn-sm" @click="goToSearch()">
             <Icon name="ph:magnifying-glass" />
           </button>
         </div>
