@@ -4,7 +4,7 @@
   >
     <div class="flex items-center justify-between">
       <NuxtLink to="/">
-        <h1 class="text-2xl font-medium">Shofar</h1>
+        <h1 class="text-2xl font-medium">Pentecostal</h1>
       </NuxtLink>
 
       <div class="md:ml-8">
