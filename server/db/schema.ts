@@ -15,6 +15,7 @@ export const albums = sqliteTable("albums", {
   id: integer("id").primaryKey(),
   name: text("name", { mode: "text" }).notNull(),
   thumbnail: text("thumbnail"),
+  releaseYear: integer("release_year"),
 });
 
 export const albumsRelations = relations(albums, ({ many }) => ({

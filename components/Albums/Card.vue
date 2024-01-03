@@ -28,7 +28,9 @@
         </NuxtLink>
       </div> -->
 
-      <!-- <div class="font-light text-xs">2022</div> -->
+      <div v-if="album.releaseYear" class="font-light text-xs">
+        {{ album.releaseYear }}
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +39,7 @@
 import type { GetArtist } from "~/server/api/artists/[id]";
 
 defineProps<{
-  album: NonNullable<GetArtist>["albums"][number]["album"];
+  album: NonNullable<GetArtist>["albums"][number];
   showArtist?: boolean;
 }>();
 </script>

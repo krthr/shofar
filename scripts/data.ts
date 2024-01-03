@@ -23,6 +23,18 @@ export default [
         name: "Jesús Fuente de Inspiración Coros de Alabanza",
         playlistId: "OLAK5uy_nphEk0oOYp-wYhG4-c84vOc64zW5qlwVY",
       },
+      {
+        name: "Con Lo Que Tienes Te Basta",
+        playlistId: "OLAK5uy_ncLaXmF1be5LhrIpd51uPR_w8oMUcucVk",
+      },
+      {
+        name: "A Solas Con Dios",
+        playlistId: "OLAK5uy_kt6_307rhC8KXWO6aAmVAysWBsXw--haM",
+      },
+      {
+        name: "A Jesús Le Debo Todo",
+        playlistId: "OLAK5uy_kFCqH7oWvRG5Ajt6PteOqfgWBwT76q3vc",
+      },
     ],
   },
   {
@@ -50,6 +62,42 @@ export default [
       {
         name: "Tu Amor por Mi",
         playlistId: "OLAK5uy_nwyY2mjCWQpVSAHOuUdTRY8ArLBJUouR8",
+      },
+      {
+        name: "Delante de Tu Presencia",
+        playlistId: "OLAK5uy_k8AJr4bLGMCfDX172iRPe85HNVzqP0qHU",
+      },
+      {
+        name: "Sin Fronteras",
+        playlistId: "OLAK5uy_mfFkWtn8D_5EegDJVAg_i8rKYIXDYqLQs",
+      },
+    ],
+  },
+  {
+    name: "Zacarías Palacios",
+    channelId: "UCRTZl1ULoA_R0mp9E0fkt7Q",
+    albums: [
+      {
+        name: "Soy Amigo de Dios, Vol. 1",
+        playlistId: "OLAK5uy_lAtUfhHcMe4RiXm0jB8byqPWaVkihQ31s",
+      },
+    ],
+  },
+  {
+    name: "Ministerio Sion",
+    channelId: "UC5fvl_GDGowBPrY4hZWS1zw",
+    albums: [
+      {
+        name: "Exaltado",
+        playlistId: "OLAK5uy_lUkXdgXVdRQs58tmWLUzVqB8GdAnpdztg",
+      },
+      {
+        name: "Por Amor",
+        playlistId: "OLAK5uy_klQGxBJoGT4jAzjb1Pr_1n_pliD75UxrE",
+      },
+      {
+        name: "Música Cristiana Con Sion",
+        playlistId: "OLAK5uy_lI7vpouIEQTUu5_jVSDfYTBwWAuRAPyHo",
       },
     ],
   },

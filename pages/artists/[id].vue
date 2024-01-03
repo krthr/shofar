@@ -12,8 +12,8 @@
         <Subtitle>Álbumes</Subtitle>
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
           <AlbumsCard
-            v-for="{ album } in artist.albums"
-            :key="album.id"
+            v-for="(album, index) in artist.albums"
+            :key="index"
             :album="album"
           />
         </div>
