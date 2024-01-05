@@ -12,25 +12,37 @@ export default defineNuxtConfig({
         lang: "es",
       },
 
-      link: [
-        { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "anonymous",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;700&family=Work+Sans:wght@300;400;500;700&display=swap",
-        },
-      ],
+      // link: [
+      //   { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
+      //   { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      //   {
+      //     rel: "preconnect",
+      //     href: "https://fonts.gstatic.com",
+      //     crossorigin: "anonymous",
+      //   },
+      //   {
+      //     rel: "stylesheet",
+      //     href: "https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;700&family=Work+Sans:wght@300;400;500;700&display=swap",
+      //   },
+      // ],
+    },
+  },
+
+  googleFonts: {
+    families: {
+      Syne: true,
+      "Work+Sans": true,
     },
   },
 
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@nuxtjs/device"],
+  modules: [
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/tailwindcss",
+    "nuxt-icon",
+    "@nuxtjs/device",
+  ],
 
   features: {
     inlineStyles: true,
