@@ -101,4 +101,12 @@ export default defineNuxtConfig({
   sitemap: {
     sources: ["/api/__sitemap__/urls"],
   },
+
+  schemaOrg: {
+    enabled: false,
+  },
+
+  linkChecker: {
+    enabled: false,
+  },
 });
