@@ -30,8 +30,8 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Syne: true,
-      "Work+Sans": true,
+      Syne: [300, 400, 500, 700],
+      "Work+Sans": [300, 400, 500, 700],
     },
   },
 
