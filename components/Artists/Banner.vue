@@ -10,7 +10,7 @@
 
       <div class="relative h-auto">
         <h1
-          class="font-medium text-5xl md:text-7xl line-clamp-2 md:line-clamp-1 md:max-w-5xl"
+          class="font-medium text-5xl md:text-7xl line-clamp-2 md:line-clamp-1 md:max-w-5xl drop-shadow"
         >
           {{ artist.name }}
         </h1>
