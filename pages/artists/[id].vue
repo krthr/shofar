@@ -38,4 +38,9 @@ const artistSongs = await useFetch("/api/songs", {
 useHead({
   title: `Discografía de ${artist.value.name}`,
 });
+
+defineOgImageComponent("Media", {
+  media: artist.value,
+  type: "artist",
+});
 </script>

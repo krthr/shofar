@@ -28,4 +28,9 @@ const albumSongs = await useFetch("/api/songs", {
 });
 
 useHead({ title: `${album.value.name} de ${album.value.artists.at(0)?.name}` });
+
+defineOgImageComponent("Media", {
+  media: album.value,
+  type: "album",
+});
 </script>
