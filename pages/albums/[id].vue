@@ -4,8 +4,8 @@
 
     <div class="page-width mt-10">
       <SongsList
-        v-if="albumSongs.status.value === 'success'"
-        :songs="albumSongs.data.value.data"
+        :loading="albumSongs.pending.value"
+        :songs="albumSongs.data.value?.data || []"
         show-index
         show-add-to-playlist
       />

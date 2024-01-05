@@ -1,5 +1,12 @@
 <template>
   <div class="w-full">
+    <div v-show="loading">
+      <div v-for="i in 3" :key="i" class="w-full p-2 gap-2 flex">
+        <div class="skeleton rounded-md h-10 flex-1"></div>
+        <div class="skeleton w-10 rounded-md"></div>
+      </div>
+    </div>
+
     <div
       v-for="(song, index) in songs"
       :key="index"
@@ -100,6 +107,7 @@ import type { Search } from "~/server/api/search";
 import type { GetSongs } from "~/server/api/songs/index";
 
 defineProps<{
+  loading?: boolean;
   songs: Search["songs"] | GetSongs["data"];
 
   dense?: boolean;

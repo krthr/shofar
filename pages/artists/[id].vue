@@ -3,10 +3,11 @@
     <ArtistsBanner :artist="artist" />
 
     <div class="p-5 page-width space-y-6">
-      <div v-if="artistSongs.status.value === 'success'">
+      <div>
         <FontSubtitle>Canciones</FontSubtitle>
         <SongsList
-          :songs="artistSongs.data.value.data"
+          :loading="artistSongs.pending.value"
+          :songs="artistSongs.data.value?.data || []"
           show-album
           show-cover
           show-add-to-playlist
