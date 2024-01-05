@@ -4,7 +4,7 @@
 
     <div class="p-5 page-width space-y-6">
       <div v-if="artistSongs.status.value === 'success'">
-        <Subtitle>Canciones</Subtitle>
+        <FontSubtitle>Canciones</FontSubtitle>
         <SongsList
           :songs="artistSongs.data.value.data"
           show-album
@@ -18,14 +18,8 @@
       </div>
 
       <div>
-        <Subtitle>Álbumes</Subtitle>
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
-          <AlbumsCard
-            v-for="(album, index) in artist.albums"
-            :key="index"
-            :album="album"
-          />
-        </div>
+        <FontSubtitle>Álbumes</FontSubtitle>
+        <AlbumsGrid :albums="artist.albums" />
       </div>
     </div>
   </div>
@@ -42,5 +36,9 @@ if (error.value) {
 const artistSongs = await useFetch("/api/songs", {
   query: { artistId: artist.value.id, limit: 5 },
   server: false,
+});
+
+useHead({
+  title: `${artist.value.name}`,
 });
 </script>

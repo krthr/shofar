@@ -1,9 +1,9 @@
 <template>
   <div class="page-width p-5" v-if="results">
-    <Header> Resultados para {{ search }} </Header>
+    <FontHeader> Resultados para {{ search }} </FontHeader>
 
     <div v-if="results.songs.length">
-      <Subtitle>Canciones</Subtitle>
+      <FontSubtitle>Canciones</FontSubtitle>
       <SongsList
         :songs="results.songs"
         show-artist
@@ -17,26 +17,13 @@
     </div>
 
     <div v-if="results.albums.length">
-      <Subtitle>Albumes</Subtitle>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-        <AlbumsCard
-          v-for="album in results.albums"
-          :key="album.id"
-          :album="album"
-          show-artist
-        />
-      </div>
+      <FontSubtitle>Albumes</FontSubtitle>
+      <AlbumsGrid :albums="results.albums" />
     </div>
 
     <div v-if="results.artists.length">
-      <Subtitle>Artistas</Subtitle>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        <ArtistsCard
-          v-for="artist in results.artists"
-          :key="artist.id"
-          :artist="artist"
-        />
-      </div>
+      <FontSubtitle>Artistas</FontSubtitle>
+      <ArtistsGrid :artists="results.artists" />
     </div>
   </div>
 </template>
