@@ -15,7 +15,7 @@
           {{ artist.name }}
         </h1>
 
-        <SongsPlayGroupButton :artist-id="artist.id" />
+        <GroupActions :artist-id="artist.id" />
       </div>
     </div>
 

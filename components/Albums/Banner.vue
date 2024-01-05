@@ -23,7 +23,7 @@
         </NuxtLink>
       </div>
 
-      <SongsPlayGroupButton :album-id="album.id" />
+      <GroupActions :album-id="album.id" />
     </div>
   </div>
 </template>
