@@ -35,6 +35,6 @@ const artistSongs = await useFetch("/api/songs", {
 });
 
 useHead({
-  title: `${artist.value.name}`,
+  title: `Discografía de ${artist.value.name}`,
 });
 </script>

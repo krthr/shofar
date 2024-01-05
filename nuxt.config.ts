@@ -5,6 +5,8 @@ import themes from "daisyui/src/theming/themes";
 export default defineNuxtConfig({
   app: {
     head: {
+      titleTemplate: "%s - Pentecostal",
+
       htmlAttrs: {
         "data-theme": "forest",
         lang: "es",

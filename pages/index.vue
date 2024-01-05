@@ -8,4 +8,8 @@
 <script setup lang="ts">
 const { data } = await useFetch("/api/artists");
 const artists = data.value!;
+
+useHead({
+  title: "Artistas",
+});
 </script>
