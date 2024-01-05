@@ -28,6 +28,10 @@
 const route = useRoute();
 const search = computed(() => route.query.search);
 
+if (typeof search.value !== "string" || search.value.trim().length === 0) {
+  await navigateTo("/");
+}
+
 const { data } = await useFetch("/api/search", {
   params: { search },
   watch: [search],
