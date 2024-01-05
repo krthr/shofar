@@ -112,7 +112,6 @@ defineProps<{
   showRemoveFromList?: boolean;
 }>();
 
-const { $player } = useNuxtApp();
 const { isDesktop } = useDevice();
 
 defineEmits<{
